@@ -45,7 +45,7 @@ export default class Profile extends Component<Props, State> {
               </h3>
             </header>
             <p>
-              <strong>Token:</strong>{" "}
+              <strong>Access Token:</strong>{" "}
               {currentUser.accessToken.substring(0, 20)} ...{" "}
               {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
             </p>
@@ -56,6 +56,10 @@ export default class Profile extends Component<Props, State> {
             <p>
               <strong>Email:</strong>{" "}
               {currentUser.email}
+            </p>
+            <p>
+              <strong>Balance:</strong>{" "}
+              {/* {currentUser.balance} */}
             </p>
             <strong>Authorities:</strong>
             <ul>

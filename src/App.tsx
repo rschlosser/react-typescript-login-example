@@ -1,4 +1,6 @@
 import { Component } from "react";
+import React from 'react';
+import Coin from './CoinFlip';
 import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -6,6 +8,7 @@ import "./App.css";
 import AuthService from "./services/auth.service";
 import IUser from './types/user.type';
 
+import CoinFlip from './CoinFlip';
 import Login from "./components/login.component";
 import Register from "./components/register.component";
 import Home from "./components/home.component";
@@ -15,6 +18,8 @@ import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
 
 import EventBus from "./common/EventBus";
+
+import Snake from './Snake';
 
 type Props = {};
 
@@ -70,7 +75,7 @@ class App extends Component<Props, State> {
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
-            bezKoder
+            CoinFlip
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
@@ -78,8 +83,22 @@ class App extends Component<Props, State> {
                 Home
               </Link>
             </li>
+            {currentUser ? (
+              <li className="nav-item">
+                <Link to={"/coinflip"} className="nav-link">
+                  Coin Flip
+                </Link>
+              </li>
+            ) : (false)}
+            {currentUser ? (
+              <li className="nav-item">
+                <Link to={"/snake"} className="nav-link">
+                  Snake
+                </Link>
+              </li>
+            ) : (false)}
 
-            {showModeratorBoard && (
+            {/* {showModeratorBoard && (
               <li className="nav-item">
                 <Link to={"/mod"} className="nav-link">
                   Moderator Board
@@ -101,11 +120,13 @@ class App extends Component<Props, State> {
                   User
                 </Link>
               </li>
-            )}
+            )} */}
           </div>
 
           {currentUser ? (
+
             <div className="navbar-nav ml-auto">
+
               <li className="nav-item">
                 <Link to={"/profile"} className="nav-link">
                   {currentUser.username}
@@ -138,6 +159,8 @@ class App extends Component<Props, State> {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/coinflip" element={<CoinFlip />} />
+            <Route path="/snake" element={<Snake />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
