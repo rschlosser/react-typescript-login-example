@@ -75,7 +75,7 @@ class App extends Component<Props, State> {
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
-            CoinFlip
+            OfkGames
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
@@ -83,6 +83,7 @@ class App extends Component<Props, State> {
                 Home
               </Link>
             </li>
+
             {currentUser ? (
               <li className="nav-item">
                 <Link to={"/coinflip"} className="nav-link">
@@ -90,6 +91,7 @@ class App extends Component<Props, State> {
                 </Link>
               </li>
             ) : (false)}
+
             {currentUser ? (
               <li className="nav-item">
                 <Link to={"/snake"} className="nav-link">

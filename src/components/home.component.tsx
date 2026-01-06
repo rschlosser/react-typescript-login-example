@@ -45,7 +45,7 @@ export default class Home extends Component<Props, State> {
         </header> */}
 
         <header >
-          <h1>Welcome to Flip & Win!</h1>
+          <h1>Welcome to OfkGames!</h1>
           <p>Are you ready to test your luck?</p>
         </header>
         <main>
